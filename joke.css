@@ -1,0 +1,15 @@
+/* Style for the 'Back to Main Page' link */
+.back-to-home {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.back-to-home:hover {
+    background-color: #1c6f95;
+}

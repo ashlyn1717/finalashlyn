@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <link rel="stylesheet" href="joke.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Joke Generator</h1>
+        <p>Click the button for a random joke!</p>
+    </header>
+
+    <section class="content-section">
+        <div id="joke-container">
+            <p id="joke"></p>
+            <button id="generate-joke">Get Joke</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ by Ashlyn</p>
+        <!-- Link to go back to the main page -->
+        <a href="index.html" class="back-to-home">Back to Main Page</a>
+    </footer>
+
+    <script>
+        // JavaScript to fetch and display jokes
+        document.getElementById("generate-joke").addEventListener("click", function() {
+            fetch("https://official-joke-api.appspot.com/random_joke")
+                .then(response => response.json())
+                .then(data => {
+                    const jokeText = `${data.setup} - ${data.punchline}`;
+                    document.getElementById("joke").textContent = jokeText;
+                })
+                .catch(error => {
+                    document.getElementById("joke").textContent = "Oops! Something went wrong. Try again.";
+                });
+        });
+    </script>
+</body>
+</html>
